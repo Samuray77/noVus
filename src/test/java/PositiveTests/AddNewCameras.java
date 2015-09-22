@@ -1,7 +1,6 @@
 package PositiveTests;
 
 
-import com.codeborne.selenide.Condition;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -13,16 +12,14 @@ import java.sql.Driver;
 import static com.codeborne.selenide.CollectionCondition.exactTexts;
 import static com.codeborne.selenide.CollectionCondition.*;
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static org.junit.Assert.assertTrue;
 
 public class AddNewCameras {
 
 //    Locators for registration
     WebElement loginField = $(By.xpath(".//*[@id='id_username']"));
     WebElement passwordField = $(By.xpath(".//*[@id='id_password']"));
-    WebElement buttonLogin = $(By.xpath(".//*[@id='login-form']/div[4]/input"));
+    WebElement inputLogin = $(By.xpath(".//*[@id='login-form']/div[4]/input"));
 
 //      Locators for add floor
     WebElement leftObject = $(By.xpath(".//*[@id='left-nav']/ul/li[4]/a"));
@@ -107,7 +104,7 @@ public class AddNewCameras {
 //        Authorization AdminPage
         $(loginField).setValue("lms");
         $(passwordField).setValue("lms");
-        $(buttonLogin).click();
+        $(inputLogin).click();
 
         System.out.println("Authorization AdminPage - PASSED");
 
@@ -262,7 +259,7 @@ public class AddNewCameras {
         $(saveCamButton).click();
 //        Check Text Present:  "The camera \"Novus - 3, camera ¹4\" was added successfully."
 //        $(saveTextLocator).shouldHave(text(saveCamText));
-        $$("#result_list>tbody tr").shouldHave(size(3));
+        $$("#result_list>tbody tr").shouldHave(size(3));//Check create 3 row in result table
 //        $(listCam3).shouldHave(exactText("Novus - 3, camera ¹4"));
 
         System.out.println("Add Camera #4 - PASSED");
@@ -275,7 +272,7 @@ public class AddNewCameras {
         $(runSelectActionButton).click();
         $(confirmDellButton).click();
 //      Checks
-        $$("#result_list>tbody tr").shouldHave(size(2));
+        $$("#result_list>tbody tr").shouldHave(size(2));//Check create 2 row in result table
 
         System.out.println("Delete Camera #4 - PASSED");
 
@@ -289,8 +286,8 @@ public class AddNewCameras {
         $(coordYField).setValue("85");
         $(saveCamButton).click();
 //      Checks
-        $$("#result_list>tbody tr").shouldHave(size(3));
-        $(By.xpath(".//*[@id='result_list']/tbody/tr[1]/th/a")).shouldHave(exactText("Novus - 3, camera ¹3"));
+        $$("#result_list>tbody tr").shouldHave(size(3));//Check create 3 row in result table
+//        $(By.xpath(".//*[@id='result_list']/tbody/tr[1]/th/a")).shouldHave(exactText("Novus - 3, camera ¹3"));
 //        $(By.xpath(".//*[@id='suit-center']/div[1]/text()[2]")).shouldHave(exactText("The camera \"Novus - 3, camera ¹3\" was added successfully."));
         System.out.println("Add Zone #3 - PASSED");
 
