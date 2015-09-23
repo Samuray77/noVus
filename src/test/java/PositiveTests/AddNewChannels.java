@@ -62,7 +62,7 @@ public class AddNewChannels {
 
 //        $(sourceTypeField).click();
 //        $(sovaLinuxFields).click();
-        $$(By.xpath(".//*[@id='channels']")).get(2).setValue("10.0.6.207");
+         $$(By.xpath(".//*[@id='channels']")).get(2).setValue("10.0.6.207");
         $(sovaLinuxFields).click();
 //        Check popupMassage present and have texts  "License code saved.",  "Licenses updated."
         $(channelsFields).shouldBe(visible);

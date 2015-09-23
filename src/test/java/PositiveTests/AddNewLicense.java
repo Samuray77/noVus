@@ -65,6 +65,44 @@ public class AddNewLicense {
 //        System.out.println("AnalyticLoginPageAuthorizationTest - PASSED");
     }
 
+
+    @Test
+    public void AddEmptyLicenseTest() throws Exception {
+
+//        Preconditions. Look @Before
+        System.out.println("AnalyticLoginPageAuthorizationTest - PASSED");
+
+        $(licenseLink).click();
+        $(saveLicenseButton).click();
+
+//        Check popupMassage present and have texts  "License code saved.",  "Licenses updated."
+        $(popupMassage1).shouldBe(visible);
+        $(popupMassage2).shouldBe(visible);
+        assertEquals(popupMassageText1, popupMassage1.getText());
+        assertEquals("License is invalid.", popupMassage2.getText());
+
+        $(analyticsLink).click();
+        $(plusAnalyticsButton).click();
+//        switchTo().window("Novus");
+
+//        Check AnalyticsPopUp present, quantity and names analytics
+//        $(By.xpath(".//*[@id='record-popup']")).shouldBe(visible);
+//        $$(".record_content tr").shouldHave(size(13));
+//        assertEquals("   FDC SensorLine", sensorLineLocator.getText());
+//        assertEquals("   FDC LPR", lprLocator.getText());
+//        assertEquals("   FDC Crowd Control", crowdControlLocator.getText());
+//        assertEquals("   FDC People Count", peopleCountLocator.getText());
+//        assertEquals("   FDC Customer Service", customerServiceLocator.getText());
+//        assertEquals("   FDC Satel", satelLocator.getText());
+//        assertEquals("   FDC Relay", relayLocator.getText());
+//        assertEquals("   FDC 1C", oneCLocator.getText());
+//        assertEquals("   NumberOk", numberOkLocator.getText());
+//        assertEquals("   FDC Customer Loyalty", customerLoyaltyLocator.getText());
+//        assertEquals("   FDC PoS", poSLocator.getText());
+//        assertEquals("   FDC RusGuard", rusGuardLocator.getText());
+
+        System.out.println("AddNewLicenseTest - PASSED");
+    }
     @Test
     public void AddNewLicenseTest() throws Exception {
 
