@@ -6,7 +6,7 @@ import org.sikuli.script.Screen;
 import java.awt.*;
 
 public class Installaton {
-
+    Screen screen = new Screen();
     @Test
     public void userCanClickInstallBotton() throws Exception {
 
@@ -14,9 +14,9 @@ public class Installaton {
 
 
 
-        Screen screen = new Screen();
 
-//        Region installWindows = new Screen();
+
+        Region screen = new Screen();
 
 
         screen.click(installButton);

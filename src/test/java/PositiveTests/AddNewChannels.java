@@ -4,6 +4,7 @@ import com.codeborne.selenide.Selectors;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -24,10 +25,10 @@ public class AddNewChannels {
     //      Locators for add channels
     WebElement buttonPlusChannel = $(By.xpath(".//*[@id='channels']/a[2]"));
     WebElement channelsFields = $(By.xpath(".//*[@id='setting_instance']/div[1]"));
-    WebElement sourceTypeField = $(by("source", "Hikvision_NVR"));
-//    WebElement sourceTypeField = $(By.cssSelector(".select"));
-    //    WebElement sovaLinuxFields = $(By.xpath(".//*[@id='channel']/div[2]/ul/li[1]"));
-    WebElement sovaLinuxFields = $(byText("SOVA_Linux"));
+    WebElement sourceTypeField = $(By.xpath(".//*[@id='channel']"));
+    //    WebElement sourceTypeField = $(By.cssSelector(".select"));
+        WebElement sovaLinuxFields = $(By.xpath(".//*[@id='channel']/div[2]/ul/li[1]"));
+//    WebElement sovaLinuxFields = $(byText("SOVA_Linux"));
     WebElement novusField = $(By.xpath(".//*[@id='channel']/div[2]/ul/li[2]"));
     WebElement hikNVRField = $(By.xpath(".//*[@id='channel']/div[2]/ul/li[3]"));
     WebElement ipAddressField = $(By.xpath(".//*[@id='channel']/div[3]/input"));
@@ -60,12 +61,18 @@ public class AddNewChannels {
 
         $(buttonPlusChannel).click();
 
-//        $(sourceTypeField).click();
+        $(By.name("login")).click();
+
+//
+//        $(By.xpath(".//*[@id='channel']/div[6]")).setValue("2");
+//
+////        $(By.xpath(".//*[@id='channel']/div[2]")).click();
+//        $(By.xpath(".//*[@id='channel']/div[2]/ul/li[@value=\"SOVA_Linux\"]")).click();
 //        $(sovaLinuxFields).click();
-         $$(By.xpath(".//*[@id='channels']")).get(2).setValue("10.0.6.207");
-        $(sovaLinuxFields).click();
-//        Check popupMassage present and have texts  "License code saved.",  "Licenses updated."
-        $(channelsFields).shouldBe(visible);
+//         $$(By.xpath(".//*[@id='channels']")).get(2).setValue("10.0.6.207");
+//        $(sovaLinuxFields).click();
+////        Check popupMassage present and have texts  "License code saved.",  "Licenses updated."
+//        $(channelsFields).shouldBe(visible);
 //        $(popupMassage2).shouldBe(visible);
 //        assertEquals(popupMassageText1, popupMassage1.getText());
 //        assertEquals(popupMassageText2, popupMassage2.getText());
