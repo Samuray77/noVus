@@ -5,12 +5,8 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
-import java.sql.Driver;
-
-import static com.codeborne.selenide.CollectionCondition.exactTexts;
-import static com.codeborne.selenide.CollectionCondition.*;
+import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -112,7 +108,7 @@ public class AddNewCameras {
         $(leftObject).click();
         $(floorField).setValue("floor_1");
         $(checkFloorDelete).click();
-        uploadFloor.sendKeys("G:\\FF_Projects\\Novus_Win\\Automation_Tests\\Images\\floor1.png");
+        uploadFloor.sendKeys("E:\\FF_Project_Automation\\FF_noVus_Win\\src\\imageSrc\\floor1.png");
         $(saveContEditButton).click();
 //        Check Text Present: "The object \"Novus\" was changed successfully. You may edit it again below."
         $(saveTextLocator).shouldHave(text(contEditText));

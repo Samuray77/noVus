@@ -1,9 +1,9 @@
+package InstalationTests;
+
 import org.junit.Test;
 import org.sikuli.script.Pattern;
 import org.sikuli.script.Region;
 import org.sikuli.script.Screen;
-
-import java.awt.*;
 
 public class Installaton {
     Screen screen = new Screen();
