@@ -1,4 +1,4 @@
-package PositiveTests;
+package PositiveTests.LmsPositiveTest;
 
 import org.junit.After;
 import org.junit.Before;
@@ -11,7 +11,8 @@ import java.util.concurrent.TimeUnit;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-public class PositiveLMSLogout {
+
+public class PositiveLMSLogin_out_in {
     private WebDriver driver;
     private String baseUrl;
     private boolean acceptNextAlert = true;
@@ -26,7 +27,7 @@ public class PositiveLMSLogout {
     }
 
     @Test
-    public void PositiveLMSLogoutTest() throws Exception {
+    public void PositiveLMSLogin_out_inTest() throws Exception {
         driver.get(baseUrl);
         driver.findElement(By.id("InputLogin")).clear();
         driver.findElement(By.id("InputLogin")).sendKeys("lms");
@@ -35,6 +36,15 @@ public class PositiveLMSLogout {
         driver.findElement(By.cssSelector("input.btn.btn-dark-gray")).click();
         driver.findElement(By.linkText("lms")).click();
         assertTrue(isElementPresent(By.xpath("html/body/div[1]/div/div[2]")));
+        driver.findElement(By.id("InputLogin")).clear();
+        driver.findElement(By.id("InputLogin")).sendKeys("lms");
+        driver.findElement(By.id("InputPassword")).clear();
+        driver.findElement(By.id("InputPassword")).sendKeys("lms");
+        driver.findElement(By.cssSelector("input.btn.btn-dark-gray")).click();
+        assertTrue(isElementPresent(By.xpath("html/body/div[3]/div")));
+
+
+
     }
 
     @After
@@ -78,4 +88,5 @@ public class PositiveLMSLogout {
             acceptNextAlert = true;
         }
     }
+
 }

@@ -1,16 +1,14 @@
-package PositiveTests;
+package PositiveTests.MalPositiveTest;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.sikuli.script.Pattern;
 import org.sikuli.script.Screen;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
-import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.hasText;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.*;
 
 public class AddNewChannels {
 
@@ -50,23 +48,29 @@ public class AddNewChannels {
 
 
 
-    @Before
-    public void loginPageAuthorizationTest() throws Exception {
-
-//        Open MALLoginPage
-        open("http://127.0.1.1/mal/");
-//        Authorization AnalyticLoginPage
-        $(userNameField).setValue("user");
-        $(passField).setValue("password");
-        $(buttonLogin).click();
-
-//        System.out.println("loginPageAuthorizationTest - PASSED");
-    }
+//    @Before
+//    public void loginPageAuthorizationTest() throws Exception {
+//
+////        Open MALLoginPage
+//        open("http://127.0.1.1/mal/");
+////        Authorization AnalyticLoginPage
+//        $(userNameField).setValue("user");
+//        $(passField).setValue("password");
+//        $(buttonLogin).click();
+//
+////        System.out.println("loginPageAuthorizationTest - PASSED");
+//    }
 
     @Test
     public void userCanWorkingSovaLinuxChannelTest() throws Exception {
 
-//        Preconditions. Look @Before
+//        Preconditions:
+        //        Open MALLoginPage
+        open("http://127.0.1.1/mal/");
+//        Authorization MALLoginPage
+        $(userNameField).setValue("user");
+        $(passField).setValue("password");
+        $(buttonLogin).click();
         System.out.println("loginPageAuthorizationTest - PASSED");
 
 //        Add new SovaLinuxChannel
