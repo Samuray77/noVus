@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 
 public class LMSLoginPage {
 
@@ -20,6 +21,7 @@ public class LMSLoginPage {
         }
         // The login page contains several HTML elements that will be represented as WebElements.
         //    Locators for registration
+        public String lmsLoginPageUrl = "127.0.1.1";
         WebElement logo = $(By.xpath("html/body/div[1]/div/img"));
         WebElement loginField = $(By.xpath(".//*[@id='id_username']"));
         String login = "lms";
@@ -27,7 +29,14 @@ public class LMSLoginPage {
         String password = "lms";
         WebElement inputLogin = $(By.xpath(".//*[@id='login-form']/div[4]/input"));
         WebElement buttonEnter = $(By.xpath("html/body/div[1]/div/div[2]/form/input[3]"));
+
+
 //        WebElement  = $(By.xpath("html/body/div[1]/div/div[2]/form/input[3]"));
+
+        public LMSLoginPage openLMSLoginPage(){
+            open(lmsLoginPageUrl);
+            return this;
+        }
 
         public LMSLoginPage typeLogin(String login) {
                 // This is the only place that "knows" how to enter a login
@@ -74,4 +83,7 @@ public class LMSLoginPage {
                 return submitLogin();
         }
 
+        public void typeLogin() {
+                $(loginField).sendKeys(login);
+        }
 }
