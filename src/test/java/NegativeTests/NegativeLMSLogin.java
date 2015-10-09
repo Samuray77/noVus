@@ -1,143 +1,217 @@
 package NegativeTests;
 
 
+import Pages.LMSLoginPage;
+import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.*;
+
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
 
 
-public class NegativeLMSLogin {
+public class NegativeLMSLogin extends LMSLoginPage{
 
-    WebElement passwordField = $(By.xpath(".//*[@id='InputPassword']"));
-    WebElement loginField = $(By.xpath(".//*[@id='InputLogin']"));
-    WebElement buttonEnter = $(By.xpath("html/body/div[1]/div/div[2]/form/input[3]"));
-    String text1 = "Incorrect login or password";
-    WebElement text1Locator = $(By.xpath("html/body/div[1]/div/div[2]/p"));
-
+    public void checkIncorrectLoginPassword() {
+        $(lmsIncorrectLoginPassword).shouldHave(text(lmsIncorrectLoginPasswordText));
+        $(lmsLoginForm).shouldBe(visible);
+    }
+    @Before
+    public void preconditionNegativeLMSLoginTest() throws Exception {
+//      Open LMSLoginPage
+        openLMSLoginPage();
+    }
 
     @Test
-    public void negativeLMSLoginTest() throws Exception {
-
-//      Open LMSLoginPage
-        open("http://127.0.0.1/accounts/login/?lang=en");
-
-//      Test1: emptyValue "username" and "password"
-//      Set "username" and "password" fields empty values
-        $(loginField).setValue("");
-        $(passwordField).setValue("");
+    public void emptyValueLMSLoginTest() throws Exception {
+//      Test1: emptyValue "login" and "password"
+//      Set "login" and "password" fields empty values
+        $(lmsLoginField).setValue("");
+        $(lmsPasswordField).setValue("");
 //      Click button "ENTER"
-        $(buttonEnter).click();
+        clickEnterButton();
 //      Check text "Incorrect login or password"
-        $(text1Locator).shouldHave(text(text1));
-//      Test2: emptyValue "username"
-//      Set "username" field empty value
-        $(loginField).setValue("");
-        $(passwordField).setValue("lms");
-        $(buttonEnter).click();
-        $(text1Locator).shouldHave(text(text1));
+        checkIncorrectLoginPassword();
+        System.out.println("emptyValue (login and password) Test - PASSED");
+    }
+
+    @Test
+    public void emptyValueLoginLMSLoginTest() throws Exception {
+//      Test2: emptyValue "login"
+//      Set "login" field empty value
+        $(lmsLoginField).setValue("");
+        enterValidLMSPassword();
+        clickEnterButton();
+        checkIncorrectLoginPassword();
+        System.out.println("emptyValue (login) Test - PASSED");
+    }
+
+    @Test
+    public void emptyValuePasswordLMSLoginTest() throws Exception {
 //      Test3: emptyValue "password"
 //      Set "password" field empty value
-        $(loginField).setValue("lms");
-        $(passwordField).setValue("");
-//      Click bottom "LOGIN"
-        $(buttonEnter).click();
-//      Check text "Incorrect login or password"
-        $(text1Locator).shouldHave(text(text1));
-        System.out.println();
-        System.out.println("Group Tests (emptyValue) - PASSED");
+        enterValidLMSLogin();
+        $(lmsPasswordField).setValue("");
+        clickEnterButton();
+        checkIncorrectLoginPassword();
+        System.out.println("emptyValue (password) Test - PASSED");
+    }
 
-//      Test4: " "Value "username" and "password"
-        $(loginField).setValue(" ");
-        $(passwordField).setValue(" ");
-        $(buttonEnter).click();
-        $(text1Locator).shouldHave(text(text1));
-//      Test5: " "Value "username"
-        $(loginField).setValue(" ");
-        $(passwordField).setValue("lms");
-        $(buttonEnter).click();
-        $(text1Locator).shouldHave(text(text1));
+    @Test
+     public void spaceValueLMSLoginTest() throws Exception {
+//      Test4: " "Value "login" and "password"
+        $(lmsLoginField).setValue(" ");
+        $(lmsPasswordField).setValue(" ");
+        $(lmsEnterButton).click();
+        checkIncorrectLoginPassword();
+        System.out.println("spaceValue (login and password) Test - PASSED");
+    }
+    @Test
+    public void spaceValueLoginLMSLoginTest() throws Exception {
+//      Test5: " "Value "login"
+        $(lmsLoginField).setValue(" ");
+        enterValidLMSPassword();
+        $(lmsEnterButton).click();
+        checkIncorrectLoginPassword();
+        System.out.println("spaceValue (login) Test - PASSED");
+    }
+
+    @Test
+    public void spaceValuePasswordLMSLoginTest() throws Exception {
 //      Test6: " "Value "password"
-        $(loginField).setValue("lms");
-        $(passwordField).setValue(" ");
-        $(buttonEnter).click();
-        $(text1Locator).shouldHave(text(text1));
-        System.out.println("Group Tests (' 'Value) - PASSED");
+        enterValidLMSLogin();
+        $(lmsPasswordField).setValue(" ");
+        $(lmsEnterButton).click();
+        checkIncorrectLoginPassword();
+        System.out.println("spaceValue (password) Test - PASSED");
+    }
 
-//      Test7: " "Value before correct symbols in "username" and "password" fields
-        $(loginField).setValue(" lms");
-        $(passwordField).setValue(" lms");
-        $(buttonEnter).click();
-        $(text1Locator).shouldHave(text(text1));
-//      Test8: " "Value before correct symbols in "username" field
-        $(loginField).setValue(" lms");
-        $(passwordField).setValue("lms");
-        $(buttonEnter).click();
-        $(text1Locator).shouldHave(text(text1));
+    @Test
+    public void spaceValueBeforeLMSLoginTest() throws Exception {
+//      Test7: " "Value before correct symbols in "login" and "password" fields
+        $(lmsLoginField).setValue(" lms");
+        $(lmsPasswordField).setValue(" lms");
+        $(lmsEnterButton).click();
+        checkIncorrectLoginPassword();
+        System.out.println("spaceValueBefore (login and password) Test - PASSED");
+    }
+
+    @Test
+    public void spaceValueBeforeLoginLMSLoginTest() throws Exception {
+//      Test8: " "Value before correct symbols in "login" field
+        $(lmsLoginField).setValue(" lms");
+        enterValidLMSPassword();
+        $(lmsEnterButton).click();
+        checkIncorrectLoginPassword();
+        System.out.println("spaceValueBefore (login) Test - PASSED");
+    }
+
+    @Test
+    public void spaceValueBeforePasswordLMSLoginTest() throws Exception {
 //      Test9: " "Value before correct symbols in "password" field
-        $(loginField).setValue("lms");
-        $(passwordField).setValue(" lms");
-        $(buttonEnter).click();
-        $(text1Locator).shouldHave(text(text1));
-        System.out.println("Group Tests (Add ' 'Value before correct symbols) - PASSED");
+        enterValidLMSLogin();
+        $(lmsPasswordField).setValue(" lms");
+        $(lmsEnterButton).click();
+        checkIncorrectLoginPassword();
+        System.out.println("spaceValueBefore (password) Test - PASSED");
+    }
 
-//      Test10: " "Value after correct symbols in "username" and "password" fields
-        $(loginField).setValue("lms ");
-        $(passwordField).setValue("lms ");
-        $(buttonEnter).click();
-        $(text1Locator).shouldHave(text(text1));
-//      Test11: " "Value after correct symbols in "username" field
-        $(loginField).setValue("lms ");
-        $(passwordField).setValue("lms");
-        $(buttonEnter).click();
-        $(text1Locator).shouldHave(text(text1));
+    @Test
+    public void spaceValueAfterLMSLoginTest() throws Exception {
+//      Test10: " "Value after correct symbols in "login" and "password" fields
+        $(lmsLoginField).setValue("lms ");
+        $(lmsPasswordField).setValue("lms ");
+        $(lmsEnterButton).click();
+        checkIncorrectLoginPassword();
+        System.out.println("spaceValueAfter (login and password) Test - PASSED");
+    }
+
+    @Test
+    public void spaceValueAfterLoginLMSLoginTest() throws Exception {
+//      Test11: " "Value after correct symbols in "lms" field
+        $(lmsLoginField).setValue("lms ");
+        enterValidLMSPassword();
+        $(lmsEnterButton).click();
+        checkIncorrectLoginPassword();
+        System.out.println("spaceValueAfter (login) Test - PASSED");
+    }
+
+    @Test
+    public void spaceValueAfterPasswordLMSLoginTest() throws Exception {
 //      Test12: " "Value after correct symbols in "password" field
-        $(loginField).setValue("lms");
-        $(passwordField).setValue("lms ");
-        $(buttonEnter).click();
-        $(text1Locator).shouldHave(text(text1));
-        System.out.println("Group Tests (Add ' 'Value after correct symbols) - PASSED");
+        enterValidLMSLogin();
+        $(lmsPasswordField).setValue("lms ");
+        $(lmsEnterButton).click();
+        checkIncorrectLoginPassword();
+        System.out.println("spaceValueAfter (password) Test - PASSED");
+    }
 
-//      Test13: " "Value between correct symbols in "username" and "password" fields
-        $(loginField).setValue("l m s");
-        $(passwordField).setValue("l m s");
-        $(buttonEnter).click();
-        $(text1Locator).shouldHave(text(text1));
-//      Test14: " "Value between correct symbols in "username" field
-        $(loginField).setValue("l m s");
-        $(passwordField).setValue("lms");
-        $(buttonEnter).click();
-        $(text1Locator).shouldHave(text(text1));
+    @Test
+    public void spaceValueBetveenLMSLoginTest() throws Exception {
+//      Test13: " "Value between correct symbols in "login" and "password" fields
+        $(lmsLoginField).setValue("l m s");
+        $(lmsPasswordField).setValue("l m s");
+        $(lmsEnterButton).click();
+        checkIncorrectLoginPassword();
+        System.out.println("spaceValueBetveen (login and password) Test - PASSED");
+    }
+
+    @Test
+    public void spaceValueBetveenLoginLMSLoginTest() throws Exception {
+//      Test14: " "Value between correct symbols in "login" field
+        $(lmsLoginField).setValue("l m s");
+        enterValidLMSPassword();
+        $(lmsEnterButton).click();
+        checkIncorrectLoginPassword();
+        System.out.println("spaceValueBetveen (login) Test - PASSED");
+    }
+
+    @Test
+    public void spaceValueBetveenPasswordLMSLoginTest() throws Exception {
 //      Test15: " "Value between correct symbols in "password" field
-        $(loginField).setValue("lms");
-        $(passwordField).setValue("l m s");
-        $(buttonEnter).click();
-        $(text1Locator).shouldHave(text(text1));
-        System.out.println("Group Tests (Add ' 'Value between correct symbols) - PASSED");
+        enterValidLMSLogin();
+        $(lmsPasswordField).setValue("l m s");
+        $(lmsEnterButton).click();
+        checkIncorrectLoginPassword();
+        System.out.println("spaceValueBetveen (password) Test - PASSED");
+    }
 
-//      Test16: CamelStyleValue with correct symbols in "username" and "password" fields
-        $(loginField).setValue("lMs");
-        $(passwordField).setValue("LmS");
-        $(buttonEnter).click();
-        $(text1Locator).shouldHave(text(text1));
-//      Test17: CamelStyleValue with correct symbols in "username" and "password" fields
-        $(loginField).setValue("LmS");
-        $(passwordField).setValue("lMs");
-        $(buttonEnter).click();
-        $(text1Locator).shouldHave(text(text1));
-//      Test18: CamelStyleValue with correct symbols in "username" and "password" fields
-        $(loginField).setValue("lMS");
-        $(passwordField).setValue("Lms");
-        $(buttonEnter).click();
-        $(text1Locator).shouldHave(text(text1));
-        System.out.println("Group Tests (CamelStyle with correct symbols) - PASSED");
+    @Test
+    public void camelStyleValueLMSLoginTest1() throws Exception {
+//      Test16: CamelStyleValue with correct symbols in "login" and "password" fields
+        $(lmsLoginField).setValue("lMs");
+        $(lmsPasswordField).setValue("LmS");
+        $(lmsEnterButton).click();
+        checkIncorrectLoginPassword();
+        System.out.println("camelStyleValue (lMs and LmS) Test - PASSED");
+    }
 
-//      Test19: SpecificSymbolValue in "username" and "password" fields
-        $(loginField).setValue("!@'#$%'&?*-+/{}[]");
-        $(passwordField).setValue("\"!@'#$%'&?*-+/{}[]\"");
-        System.out.println("Group Tests (SpecificSymbolValue) - PASSED");
+    @Test
+    public void camelStyleValueLMSLoginTest2() throws Exception {
+//      Test17: CamelStyleValue with correct symbols in "login" and "password" fields
+        $(lmsLoginField).setValue("LmS");
+        $(lmsPasswordField).setValue("lMs");
+        $(lmsEnterButton).click();
+        checkIncorrectLoginPassword();
+        System.out.println("camelStyleValue (LmS and lMs) Test - PASSED");
+    }
 
+    @Test
+    public void camelStyleValueLMSLoginTest3() throws Exception {
+//      Test18: CamelStyleValue with correct symbols in "login" and "password" fields
+        $(lmsLoginField).setValue("lMS");
+        $(lmsPasswordField).setValue("Lms");
+        $(lmsEnterButton).click();
+        checkIncorrectLoginPassword();
+        System.out.println("camelStyleValue (lMS and Lms) Test - PASSED");
+    }
+
+    @Test
+    public void specificSymbolValueLMSLoginTest() throws Exception {
+//      Test19: SpecificSymbolValue in "login" and "password" fields
+        $(lmsLoginField).setValue("!@'#$%'&?*-+/{}[]");
+        $(lmsPasswordField).setValue("\"!@'#$%'&?*-+/{}[]\"");
+        System.out.println("specificSymbolValue Test - PASSED");
 
     }
 

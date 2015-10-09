@@ -28,4 +28,15 @@ public class MALLoginPage {
         open(malLoginPageUrl);
     }
 
+    public void   enterValidMALUser(){
+        $(userNameField).setValue(validUserName);;
+    }
+
+    public void   enterValidMALPassword(){
+        $(passwordField).setValue(validPassword);;
+    }
+
+    public void   clickLoginButton(){
+        $(loginButton).click();
+    }
 }
