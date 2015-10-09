@@ -211,8 +211,26 @@ public class NegativeLMSLogin extends LMSLoginPage{
 //      Test19: SpecificSymbolValue in "login" and "password" fields
         $(lmsLoginField).setValue("!@'#$%'&?*-+/{}[]");
         $(lmsPasswordField).setValue("\"!@'#$%'&?*-+/{}[]\"");
-        System.out.println("specificSymbolValue Test - PASSED");
-
+        System.out.println("specificSymbolValue (username and password) Test - PASSED");
     }
 
+    @Test
+    public void specificSymbolValueUserNameLMSLoginTest() throws Exception {
+//      Test20: SpecificSymbolValue in "username" field
+        $(lmsLoginField).setValue("!@'#$%'&?*-+/{}[]");
+        enterValidLMSPassword();
+        clickEnterButton();
+        checkIncorrectLoginPassword();
+        System.out.println("specificSymbolValue (username) Test - PASSED");
+    }
+
+    @Test
+    public void specificSymbolValuePasswordAnalLoginTest() throws Exception {
+//      Test21: SpecificSymbolValue in "password" field
+        enterValidLMSLogin();
+        $(lmsPasswordField).setValue("\"!@'#$%'&?*-+/{}[]\"");
+        clickEnterButton();
+        checkIncorrectLoginPassword();
+        System.out.println("specificSymbolValueBetween (password) Test - PASSED");
+    }
 }

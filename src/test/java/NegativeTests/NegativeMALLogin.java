@@ -223,7 +223,25 @@ public class NegativeMALLogin extends MALLoginPage {
         System.out.println("SpecificSymbolValue Tests - PASSED");
     }
 
+    @Test
+    public void specificSymbolValueUserNameLMSLoginTest() throws Exception {
+//      Test20: SpecificSymbolValue in "username" field
+        $(userNameField).setValue("!@'#$%'&?*-+/{}[]");
+        enterValidMALPassword();
+        clickLoginButton();
+        checkLoginUnauthorized();
+        System.out.println("specificSymbolValue (username) Test - PASSED");
+    }
 
+    @Test
+    public void specificSymbolValuePasswordAnalLoginTest() throws Exception {
+//      Test21: SpecificSymbolValue in "password" field
+        enterValidMALUser();
+        $(passwordField).setValue("\"!@'#$%'&?*-+/{}[]\"");
+        clickLoginButton();
+        checkLoginUnauthorized();
+        System.out.println("specificSymbolValueBetween (password) Test - PASSED");
+    }
 
 
 }
