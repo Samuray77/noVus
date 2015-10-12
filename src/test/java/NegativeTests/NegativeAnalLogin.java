@@ -1,7 +1,7 @@
 package NegativeTests;
 
 
-import Pages.AnalPage;
+import Pages.AnalLoginPage;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
-public class NegativeAnalLogin extends AnalPage{
+public class NegativeAnalLogin extends AnalLoginPage {
 
     public void checkInvalidUserNamePassword() {
         $(analInvalidUsernamePassword).shouldHave(text(analInvalidUsernamePasswordText));

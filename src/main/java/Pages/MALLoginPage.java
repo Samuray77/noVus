@@ -8,6 +8,7 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class MALLoginPage {
 
+    public WebElement malLoginPageTitle = $(By.xpath("html/head/title"));
     public WebElement loginForm = $(By.xpath("/html/body/div[2]/form[1]"));
     public WebElement loginText = $(By.xpath("/html/body/div[2]/form[1]/h3[1]"));
     public WebElement userNameField = $(By.xpath(".//*[@id='username']"));
@@ -24,8 +25,9 @@ public class MALLoginPage {
     public  String validPassword = "password";
 
 
-    public void   openMALLoginPage(){
+    public MALLoginPage   openMALLoginPage(){
         open(malLoginPageUrl);
+        return new MALLoginPage();
     }
 
     public void   enterValidMALUser(){
@@ -38,5 +40,12 @@ public class MALLoginPage {
 
     public void   clickLoginButton(){
         $(loginButton).click();
+    }
+
+    public MALPage validMALLoginPageRegistration(){
+        enterValidMALUser();
+        enterValidMALPassword();
+        clickLoginButton();
+        return new MALPage();
     }
 }

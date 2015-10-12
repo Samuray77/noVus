@@ -7,9 +7,10 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class MALPage {
 
+    public WebElement malPageTitle = $(By.xpath("html/head/title"));
     WebElement novusLogo = $(By.xpath("id(\"header\")/a[1]"));
     WebElement videoSourceSettingsText = $(By.xpath("/html/body/div[1]/div[1]/h1[1]"));
-    WebElement videoSorceSettingsLink = $(By.xpath("id(\"header\")/div[1]/ul[1]/li[1]/a[1]"));
+    public WebElement videoSorceSettingsLink = $(By.xpath("id(\"header\")/div[1]/ul[1]/li[1]/a[1]"));
     WebElement settingsLink = $(By.xpath("id(\"header\")/div[1]/ul[1]/li[2]/a[1]"));
     WebElement backToWebsiteLink = $(By.xpath("id(\"header\")/div[1]/ul[1]/li[3]/a[1]"));
     WebElement changePasswordLink = $(By.xpath("id(\"header\")/div[1]/ul[1]/li[4]/a[1]"));
@@ -43,6 +44,8 @@ public class MALPage {
     WebElement sorryIcon = $(By.xpath("id(\"servermessage\")/div[1]/div[1]/i[1]"));
 
 
-
-
+    public MALLoginPage clickLogOutLink() {
+        $(logoutLink).click();
+        return new  MALLoginPage();
+    }
 }

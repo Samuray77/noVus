@@ -1,29 +1,28 @@
 package PositiveTests.LmsPositiveTest;
 
 import Pages.LMSLoginPage;
+import org.junit.Before;
 import org.junit.Test;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.title;
+import static com.codeborne.selenide.Condition.text;
 
 public class PositiveLMSLogin extends LMSLoginPage{
 
 
-    @Test
-    public void userCanRegistrationWithValidDataTest() throws Exception {
-
+    @Before
+    public void preconditionPositiveLMSLoginTest() throws Exception {
+//      Open LMSLoginPage
         openLMSLoginPage();
+    }
 
-        validLMSLoginPageRegistration(); // Enter valid "login" and "password" in loginField and passwordField.
+    @Test
+    public void positiveLMSLoginTest() throws Exception {
 
-//      Checks:
+//      Enter valid "login" and "password" in loginField and passwordField.
 //      Check ObjectPage opened
+        validLMSLoginPageRegistration().objectPageObjectLogo.equals(text("object"));
 
-        $(title()).getText().equals("noVus");
-
-
-        System.out.println("LMS Authorization - PASSED");
-
+        System.out.println("PositiveLMSLogin Test - PASSED");
 
 
     }

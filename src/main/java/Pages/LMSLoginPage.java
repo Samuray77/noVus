@@ -32,8 +32,9 @@ public class LMSLoginPage {
                 return new LMSLoginPage();
         }
 
-        public void   enterValidLMSLogin(){
+        public LMSLoginPage enterValidLMSLogin(){
                 $(lmsLoginField).setValue(lmsValidLogin);
+                return new LMSLoginPage();
         }
 
         public void   enterValidLMSPassword(){
@@ -44,11 +45,11 @@ public class LMSLoginPage {
                 $(lmsEnterButton).click();
         }
 
-        public  ObjectPage validLMSLoginPageRegistration(){
-                $(lmsLoginField).setValue(lmsValidLogin);
-                $(lmsPasswordField).setValue(lmsValidPassword);
-                $(lmsEnterButton).click();
-                return new ObjectPage();
-        }
 
+        public ObjectPage validLMSLoginPageRegistration() {
+                enterValidLMSLogin();
+                enterValidLMSPassword();
+                clickEnterButton();
+                return  new ObjectPage();
+        }
 }
