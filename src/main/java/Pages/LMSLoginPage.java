@@ -27,19 +27,28 @@ public class LMSLoginPage {
         String lmsValidLogin = "lms";
         String lmsValidPassword = "lms";
 
-        public void   openLMSLoginPage(){
+        public LMSLoginPage   openLMSLoginPage(){
                 open(lmsLoginPageUrl);
+                return new LMSLoginPage();
         }
 
         public void   enterValidLMSLogin(){
-                $(lmsLoginField).setValue(lmsValidLogin);;
+                $(lmsLoginField).setValue(lmsValidLogin);
         }
 
         public void   enterValidLMSPassword(){
-                $(lmsPasswordField).setValue(lmsValidPassword);;
+                $(lmsPasswordField).setValue(lmsValidPassword);
         }
 
         public void   clickEnterButton(){
                 $(lmsEnterButton).click();
         }
+
+        public  ObjectPage validLMSLoginPageRegistration(){
+                $(lmsLoginField).setValue(lmsValidLogin);
+                $(lmsPasswordField).setValue(lmsValidPassword);
+                $(lmsEnterButton).click();
+                return new ObjectPage();
+        }
+
 }
