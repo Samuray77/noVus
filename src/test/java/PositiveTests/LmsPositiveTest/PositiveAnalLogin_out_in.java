@@ -1,7 +1,9 @@
 package PositiveTests.LmsPositiveTest;
 
 import Pages.AnalLoginPage;
+import Pages.AnalPage;
 import org.junit.Before;
+import org.junit.Test;
 
 public class PositiveAnalLogin_out_in extends AnalLoginPage{
 
@@ -10,13 +12,17 @@ public class PositiveAnalLogin_out_in extends AnalLoginPage{
         openAnalLoginPage();
     }
 
-//    @Test
-//    public void PositiveMALLogin_out_inTest() throws Exception {
-////      Enter valid "userName" and "password" in "userNameField" and "passwordField".
-////      Check MALLoginPage opened
-//        validAnalLoginPageRegistration().clickLogOutLink().malLoginPageTitle.getText().equals("Video Source Settings");
-//
-//        System.out.println("PositiveMALLogin_out_in Test - PASSED");
-//
-//    }
+    @Test
+    public void PositiveAnalLogin_out_inTest() throws Exception {
+//      Enter valid "userName" and "password" in "userNameField" and "passwordField".
+//      Check AnalLoginPage opened
+        AnalPage resultPage = validAnalLoginPageRegistration().clickanalPageLogoutLink().validAnalLoginPageRegistration();
+        resultPage.validateAnalPage();
+
+        System.out.println("PositiveAnalLogin_out_in Test - PASSED");
+
+    }
+
+
+
 }

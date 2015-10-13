@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class UaLmsLoginPage {
+public class UILmsLoginPage {
 
     //    Locators for registration
     WebElement loginField = $(By.xpath(".//*[@id='id_username']"));

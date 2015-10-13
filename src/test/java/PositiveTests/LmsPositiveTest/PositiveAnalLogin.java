@@ -1,10 +1,9 @@
 package PositiveTests.LmsPositiveTest;
 
 import Pages.AnalLoginPage;
+import Pages.AnalPage;
 import org.junit.Before;
 import org.junit.Test;
-
-import static com.codeborne.selenide.Condition.text;
 
 public class PositiveAnalLogin extends AnalLoginPage{
     @Before
@@ -17,9 +16,11 @@ public class PositiveAnalLogin extends AnalLoginPage{
     public void positiveAnalLoginTest() throws Exception {
 
 //      Enter valid "login" and "password" in userNameField and passwordField.
+        AnalPage resultPage = validAnalLoginPageRegistration();
 //      Check AnalPage opened
-        validAnalLoginPageRegistration().analPageAnalyticsText.equals(text("Analytics"));
-
+//        resultPage.analPageAnalyticsLabel.shouldHave();
+//        $(resultPage.analPageAnalyticsLabel).shouldBe(Condition.visible);
+        resultPage.validateAnalPage();
         System.out.println("PositiveAnalLogin Test - PASSED");
 
 
