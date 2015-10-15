@@ -61,9 +61,9 @@ public class MainAdminPage {
         return new LMSLoginPage();
     }
 
-    public AdminAuthPage clickadminPageSearchButton(){
+    public AdminAuthGroupPage clickadminPageSearchButton(){
         $(adminPageSearchButton).click();
-        return new AdminAuthPage();
+        return new AdminAuthGroupPage();
     }
 
     public AdminPage clickadminPageHomeLink(){
@@ -71,19 +71,19 @@ public class MainAdminPage {
         return new AdminPage();
     }
 
-    public AdminAuthPage clickadminPageAuthLink(){
+    public AdminAuthGroupPage clickadminPageAuthLink(){
         $(adminPageAuthLink).click();
-        return new AdminAuthPage();
+        return new AdminAuthGroupPage();
     }
 
-    public AdminAuthPage clickadminPageGroupDropDawnLink(){
+    public AdminAuthGroupPage clickadminPageGroupDropDawnLink(){
         $(adminPageGroupDropDawnLink).click();
-        return new AdminAuthPage();
+        return new AdminAuthGroupPage();
     }
 
-    public AdminAuthPage clickadminPageUsersDropDawnLink(){
+    public AdminAuthGroupPage clickadminPageUsersDropDawnLink(){
         $(adminPageUsersDropDawnLink).click();
-        return new AdminAuthPage();
+        return new AdminAuthGroupPage();
     }
 
     public AdminEventsCameraPage clickadminPageEventLink(){
