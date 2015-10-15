@@ -1,6 +1,6 @@
 package Pages;
 
-public class AdminAuthGroupPage {
+public class AdminAuthGroupPage extends MainAdminPage {
 
 
 }
