@@ -69,9 +69,9 @@ public class AdminPage extends MainAdminPage{
         return new AdminEventsPage();
     }
 
-    public AdminEventsCamerasPage clickAdminPageEventsCamerasChangeLink(){
+    public AdminEventsCameraPage clickAdminPageEventsCamerasChangeLink(){
         $(adminPageEventsCamerasChangeLink).click();
-        return new AdminEventsCamerasPage();
+        return new AdminEventsCameraPage();
     }
 
     public AdminEventsCamerasAddCameraPage clickAdminPageEventsCamerasAddLink(){

@@ -99,14 +99,14 @@ public class MainAdminPage {
         return new AdminAuthGroupsPage();
     }
 
-    public AdminEventsCamerasPage clickMainAdminPageEventLink(){
+    public AdminEventsCameraPage clickMainAdminPageEventLink(){
         $(mainAdminPageEventLink).click();
-        return new AdminEventsCamerasPage();
+        return new AdminEventsCameraPage();
     }
 
-    public AdminEventsCamerasPage clickMainAdminPageCamerasDropDawnLink(){
+    public AdminEventsCameraPage clickMainAdminPageCamerasDropDawnLink(){
         $(mainAdminPageCamerasDropDawnLink).click();
-        return new AdminEventsCamerasPage();
+        return new AdminEventsCameraPage();
     }
 
     public AdminEventsEventTypePage clickMainAdminPageEventsTypeDropDawnLink(){
