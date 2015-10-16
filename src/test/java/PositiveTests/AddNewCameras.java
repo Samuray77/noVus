@@ -102,7 +102,7 @@ public class AddNewCameras {
         $(passwordField).setValue("lms");
         $(inputLogin).click();
 
-        System.out.println("Authorization AdminPage - PASSED");
+        System.out.println("Authorization AdminLoginPage - PASSED");
 
 //      Add floor for object
         $(leftObject).click();
