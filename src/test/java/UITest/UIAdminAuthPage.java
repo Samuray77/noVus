@@ -1,6 +1,6 @@
 package UITest;
 
-import Pages.AdminAuthPage;
+import Pages.PagesAdmin.AdminAuthPage;
 import org.junit.Test;
 
 public class UIAdminAuthPage extends AdminAuthPage {

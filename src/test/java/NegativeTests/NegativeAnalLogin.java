@@ -1,7 +1,7 @@
 package NegativeTests;
 
 
-import Pages.AnalLoginPage;
+import Pages.PagesAnalytics.AnalLoginPage;
 import org.junit.Before;
 import org.junit.Test;
 

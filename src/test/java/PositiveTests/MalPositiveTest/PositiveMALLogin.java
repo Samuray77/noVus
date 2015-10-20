@@ -1,6 +1,6 @@
 package PositiveTests.MalPositiveTest;
 
-import Pages.MALLoginPage;
+import Pages.PagesMAL.MALLoginPage;
 import org.junit.Test;
 
 import static com.codeborne.selenide.Selenide.$;

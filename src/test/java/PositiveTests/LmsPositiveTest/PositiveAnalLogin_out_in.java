@@ -1,7 +1,7 @@
 package PositiveTests.LmsPositiveTest;
 
-import Pages.AnalLoginPage;
-import Pages.AnalPage;
+import Pages.PagesAnalytics.AnalLoginPage;
+import Pages.PagesAnalytics.AnalPage;
 import org.junit.Before;
 import org.junit.Test;
 

@@ -1,7 +1,7 @@
 package NegativeTests;
 
 
-import Pages.LMSLoginPage;
+import Pages.PagesLMS.LMSLoginPage;
 import org.junit.Before;
 import org.junit.Test;
 

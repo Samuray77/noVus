@@ -1,6 +1,6 @@
 package UITest;
 
-import Pages.AnalPage;
+import Pages.PagesAnalytics.AnalPage;
 import com.codeborne.selenide.Condition;
 
 import static com.codeborne.selenide.CollectionCondition.size;
